@@ -17,12 +17,17 @@
     <div id="comments"></div>
 </div>
 
-<audio autoplay loop>
+<audio autoplay loop muted id="bgm">
 <source src="beksonkece.mp3" type="audio/mpeg">
 </audio>
 
-<script type="module" src="firebase.js"></script>
+<script>
+document.body.addEventListener("click",()=>{
+document.getElementById("bgm").muted=false;
+});
+</script>
+
 <script type="module" src="script.js"></script>
 
 </body>
-</html> 
+</html>
