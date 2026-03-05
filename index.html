@@ -17,13 +17,15 @@
     <div id="comments"></div>
 </div>
 
-<audio autoplay loop muted id="bgm">
+<audio id="bgm" loop muted preload="auto">
 <source src="beksonkece.mp3" type="audio/mpeg">
 </audio>
 
 <script>
 document.body.addEventListener("click",()=>{
-document.getElementById("bgm").muted=false;
+const music = document.getElementById("bgm");
+music.muted = false;
+music.play();
 });
 </script>
 
