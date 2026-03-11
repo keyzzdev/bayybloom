@@ -1,3 +1,5 @@
+Reply=anonReply;
+
 import { db } from "./firebase.js";
 import {
 collection,
@@ -42,8 +44,8 @@ async function render(){
             let rep=document.createElement("div");
             rep.className="reply";
 
-            if(r.from==="fall"){
-                rep.innerHTML="<strong>Fall.</strong><br>"+r.text;
+            if(r.from==="Dev"){
+                rep.innerHTML="<strong>Dev</strong><br>"+r.text;
             }else{
                 rep.innerHTML="<strong>anonim</strong><br>"+r.text;
             }
@@ -59,8 +61,8 @@ async function render(){
             div.appendChild(form);
         }
 
-        // form reply anonim (hanya jika fall sudah balas)
-        if(!isAdmin && c.replies.some(r=>r.from==="fall")){
+        // form reply anonim (hanya jika dev sudah balas)
+        if(!isAdmin && c.replies.some(r=>r.from==="Dev")){
             let form=document.createElement("div");
             form.className="reply-form";
 
@@ -107,7 +109,7 @@ function toggleReplyForm(id){
     }
 
     form.innerHTML=`
-    <textarea id="reply-${id}" placeholder="balas sebagai Fall..."></textarea>
+    <textarea id="reply-${id}" placeholder="balas sebagai Dev..."></textarea>
     <button onclick="submitReply('${id}')">kirim</button>
     `;
 }
@@ -127,7 +129,7 @@ async function submitReply(id){
             let data=d.data();
 
             data.replies.push({
-                from:"fall",
+                from:"Dev",
                 text:text
             });
 
@@ -174,4 +176,4 @@ render();
 
 window.anonReply=anonReply;
 
-render();
+render();render();render();
